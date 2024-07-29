@@ -28,8 +28,8 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
         options => {
-          options.Authority = builder.Configuration["IdentityServerURL"];
-          options.Audience = "resource_catalog";
+          options.Authority = builder.Configuration["PhotoStockURL"];
+          options.Audience = "resource_photostock";
           options.RequireHttpsMetadata = false;
         });
 var app = builder.Build();

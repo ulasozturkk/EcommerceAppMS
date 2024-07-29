@@ -15,7 +15,7 @@ namespace ECommerceAppMS.IdentityServer
 
     public static IEnumerable<ApiResource> ApiResources => new ApiResource[] {
            new ApiResource("resource_catalog"){Scopes={ "catalog_fullpermission" }},
-           new ApiResource("photo_stock_catalog"){Scopes={ "photo_stock_fullpermission" }},
+           new ApiResource("resource_photostock"){Scopes={ "photo_stock_fullpermission" }},
            new ApiResource(IdentityServerConstants.LocalApi.ScopeName),
 
          };
@@ -45,13 +45,8 @@ namespace ECommerceAppMS.IdentityServer
                 ClientId = "WebMvcClient",
                 AllowOfflineAccess=true,
                 ClientSecrets = {new Secret("secret".Sha256())},
-                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                AllowedScopes = {IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile
-                ,IdentityServerConstants.StandardScopes.OfflineAccess},
-                AccessTokenLifetime = 1*60*60,
-                RefreshTokenExpiration=TokenExpiration.Absolute,
-                AbsoluteRefreshTokenLifetime = (int) (DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds,
-                RefreshTokenUsage = TokenUsage.ReUse
+                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedScopes = {"catalog_fullpermission","photo_stock_fullpermission",IdentityServerConstants.LocalApi.ScopeName}
                 
               },
               new Client {
