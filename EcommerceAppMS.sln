@@ -26,6 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ports.txt = ports.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{9120BD0E-3BC8-4BB9-A866-63710F03843B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceAppMS.Basket", "ECommerceAppMS.Basket\ECommerceAppMS.Basket.csproj", "{D7D80FE3-D440-4F1A-8C4B-FE732C23DAC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,10 @@ Global
 		{5EA5EF38-9E1E-490D-9527-B71E03BB51B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EA5EF38-9E1E-490D-9527-B71E03BB51B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA5EF38-9E1E-490D-9527-B71E03BB51B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D80FE3-D440-4F1A-8C4B-FE732C23DAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D80FE3-D440-4F1A-8C4B-FE732C23DAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D80FE3-D440-4F1A-8C4B-FE732C23DAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D80FE3-D440-4F1A-8C4B-FE732C23DAC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,8 @@ Global
 		{E0B8D798-DD01-42EA-8C76-0440BE594984} = {1E008F5A-EB6C-487D-A51E-45FD6327F0A8}
 		{92ACF679-2FCE-429B-A349-4E57D39FA6A7} = {46A40FD7-9CD2-4502-8B88-BC939A0FF78F}
 		{5EA5EF38-9E1E-490D-9527-B71E03BB51B3} = {92ACF679-2FCE-429B-A349-4E57D39FA6A7}
+		{9120BD0E-3BC8-4BB9-A866-63710F03843B} = {46A40FD7-9CD2-4502-8B88-BC939A0FF78F}
+		{D7D80FE3-D440-4F1A-8C4B-FE732C23DAC6} = {9120BD0E-3BC8-4BB9-A866-63710F03843B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1BD082BE-B717-4018-A63B-7F15F1BF9393}

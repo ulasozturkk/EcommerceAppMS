@@ -1,0 +1,6 @@
+@ECommerceAppMS.Basket_HostAddress = http://localhost:5074
+
+GET {{ECommerceAppMS.Basket_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
