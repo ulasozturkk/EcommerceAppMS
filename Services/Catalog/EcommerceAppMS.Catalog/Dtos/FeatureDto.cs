@@ -1,6 +1,5 @@
 ﻿namespace EcommerceAppMS.Catalog.Dtos;
 
-public class FeatureDto
-{
-    public int? Duration { get; set; }
+public class FeatureDto {
+  public int? Duration { get; set; }
 }

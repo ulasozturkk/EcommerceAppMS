@@ -2,25 +2,22 @@
 using EcommerceAppMS.Shared.Dtos;
 using ECommerceAppMS.PhotoStock.Dtos;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ECommerceAppMS.PhotoStock.Controllers; 
+namespace ECommerceAppMS.PhotoStock.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 [Authorize]
 public class PhotosController : CustomBaseController {
 
   [HttpPost]
-
-  public async Task<IActionResult> PhotoSave (IFormFile photo,CancellationToken cancellationToken) {
-
+  public async Task<IActionResult> PhotoSave(IFormFile photo, CancellationToken cancellationToken) {
     if (photo != null && photo.Length > 0) {
-
       var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.FileName);
 
-      using(var stream = new FileStream(path,FileMode.Create)) {
-        await photo.CopyToAsync(stream,cancellationToken);
+      using (var stream = new FileStream(path, FileMode.Create)) {
+        await photo.CopyToAsync(stream, cancellationToken);
       }
 
       //http://www.photostock.api.com/photos/asdasdf.jpeg   gibi olacak
@@ -28,8 +25,7 @@ public class PhotosController : CustomBaseController {
 
       PhotoDto photoDto = new() { Url = returnPath };
 
-      return CreateActionResultInstance(ResponseDTO<PhotoDto>.Success(photoDto,201));
-
+      return CreateActionResultInstance(ResponseDTO<PhotoDto>.Success(photoDto, 201));
     }
 
     return CreateActionResultInstance(ResponseDTO<PhotoDto>.Fail("photo is empty", 404));

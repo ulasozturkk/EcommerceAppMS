@@ -9,7 +9,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
         options => {
           options.Authority = builder.Configuration["IdentityServerURL"];
@@ -18,8 +17,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         });
 
 var app = builder.Build();
-
-
 
 app.UseStaticFiles();
 // Configure the HTTP request pipeline.
