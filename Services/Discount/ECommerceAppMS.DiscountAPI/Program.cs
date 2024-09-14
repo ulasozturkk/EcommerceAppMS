@@ -23,7 +23,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
   Options.Authority = builder.Configuration["IdentityServerURL"];
   Options.Audience = "resource_discount";
   Options.RequireHttpsMetadata = false;
-
 });
 builder.Services.AddControllers(opt => {
   opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
@@ -42,7 +41,7 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.UseAuthorization();
-app.UseAuthentication(); 
+app.UseAuthentication();
 
 app.MapControllers();
 

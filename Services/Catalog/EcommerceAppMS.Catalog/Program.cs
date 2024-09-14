@@ -6,9 +6,7 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
-builder.Services.AddControllers(opt=> {
+builder.Services.AddControllers(opt => {
   opt.Filters.Add(new AuthorizeFilter());
 }
 );
@@ -19,9 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
-builder.Services.AddSingleton<IDatabaseSettings>(sp =>
-{
-    return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
+builder.Services.AddSingleton<IDatabaseSettings>(sp => {
+  return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
 });
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
@@ -35,10 +32,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+if (app.Environment.IsDevelopment()) {
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseAuthentication();
@@ -47,4 +43,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-

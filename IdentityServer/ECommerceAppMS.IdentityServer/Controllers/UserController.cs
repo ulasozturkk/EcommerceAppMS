@@ -1,7 +1,6 @@
 ﻿using ECommerceAppMS.IdentityServer.Dtos;
 using ECommerceAppMS.IdentityServer.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,15 +8,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using static IdentityServer4.IdentityServerConstants;
 
-
 namespace ECommerceAppMS.IdentityServer.Controllers {
-
 
   [Route("api/[controller]/[action]")]
   [Authorize(LocalApi.PolicyName)]
   [ApiController]
   public class UserController : ControllerBase {
-
     private readonly UserManager<ApplicationUser> _userManager;
 
     public UserController(UserManager<ApplicationUser> userManager) {
@@ -40,7 +36,7 @@ namespace ECommerceAppMS.IdentityServer.Controllers {
 
     [HttpGet]
     public async Task<IActionResult> GetUser() {
-      var userIdClaim = User.Claims.FirstOrDefault(x=>x.Type == JwtRegisteredClaimNames.Sub);
+      var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Sub);
 
       if (userIdClaim == null) {
         return BadRequest();
@@ -49,11 +45,7 @@ namespace ECommerceAppMS.IdentityServer.Controllers {
       var user = await _userManager.FindByIdAsync(userIdClaim.Value);
       if (user == null) return BadRequest();
 
-      return Ok(new ApplicationUser { Id = user.Id,UserName = user.UserName, Email= user.Email,City = user.City });
-
+      return Ok(new ApplicationUser { Id = user.Id, UserName = user.UserName, Email = user.Email, City = user.City });
     }
   }
-
 }
-  
-

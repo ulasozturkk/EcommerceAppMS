@@ -22,7 +22,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
   Options.Authority = builder.Configuration["IdentityServerURL"];
   Options.Audience = "resource_basket";
   Options.RequireHttpsMetadata = false;
-
 });
 
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
